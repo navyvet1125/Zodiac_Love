@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  month: MyString
+  day: MyString
+  previous_id: 1
+  next_id: 1
+  quality: MyString
+  element: MyString
+  celestial_body: MyString
+  info: MyString
+  strengths: MyString
+  weaknesses: MyString
+  most_compatible: MyString
+  least_compatible: MyString
+
+two:
+  name: MyString
+  month: MyString
+  day: MyString
+  previous_id: 1
+  next_id: 1
+  quality: MyString
+  element: MyString
+  celestial_body: MyString
+  info: MyString
+  strengths: MyString
+  weaknesses: MyString
+  most_compatible: MyString
+  least_compatible: MyString
