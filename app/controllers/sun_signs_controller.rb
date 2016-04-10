@@ -9,5 +9,6 @@ class SunSignsController < ApplicationController
   	@last = @next_sign.day.to_i
   	@last = @last - 1
   	@compatible = @sun_sign.most_compatible.split(", ")
+  	@incompatible = @sun_sign.least_compatible.split(", ")
   end
 end

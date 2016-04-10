@@ -16,9 +16,13 @@
 		<%= link_to "#{sign}", sign_path(sign) %>
 	<% end %>
 	</b></big>
-
 	 <br/>
-
+	<big><b>Doesn't get along  as well with:
+	<% @incompatible.each  do |sign|%>
+		<%= link_to "#{sign}", sign_path(sign) %>
+	<% end %>
+	</b></big>
+	 <br/>
 </p>
 
 <br/>

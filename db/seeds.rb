@@ -51,7 +51,7 @@ sun_signs = SunSign.create([
 			strengths: 'Persevering, Down-to-earth, stable, dependable',
 			weaknesses: 'Stubborn, possessive,',
 			most_compatible: 'Scorpio, Virgo, Capricorn',
-			least_compatible: 'Cancer'
+			least_compatible: 'Libra, Sagittarius'
 		},
 		{
 			id: 3,
@@ -67,7 +67,7 @@ sun_signs = SunSign.create([
 			strengths: 'Intellectual, Adaptable, Social',
 			weaknesses: 'Talkative, Superficial',
 			most_compatible: 'Sagittarius, Libra, Aquarius',
-			least_compatible: 'Cancer'
+			least_compatible: 'Capricorn, Scorpio'
 		},
 		{
 			id: 4,
@@ -83,7 +83,7 @@ sun_signs = SunSign.create([
 			strengths: 'Gentle, Conservative, Feeling, Nurturing',
 			weaknesses: 'Defensive Contemplative',
 			most_compatible: 'Capricorn, Scorpio, Pisces',
-			least_compatible: 'Aries'
+			least_compatible: 'Sagittarius, Aquarius, Aries, Libra'
 		},
 		{
 			id: 5,
@@ -99,7 +99,7 @@ sun_signs = SunSign.create([
 			strengths: 'Generous, Hospitable, Caring, Warm, Active, Open',
 			weaknesses: 'Authoritative',
 			most_compatible: 'Aquarius, Aries, Sagittarius',
-			least_compatible: 'Cancer'
+			least_compatible: 'Capricorn, Pisces'
 		},
 		{
 			id: 6,
@@ -115,7 +115,7 @@ sun_signs = SunSign.create([
 			strengths: 'Intelligent, Reserved, Helpful, Conscientous',
 			weaknesses: 'Critical',
 			most_compatible: 'Pisces, Taurus, Capricorn',
-			least_compatible: 'Cancer'
+			least_compatible: 'Aquarius, Aries'
 		},
 		{
 			id: 7,
@@ -131,7 +131,7 @@ sun_signs = SunSign.create([
 			strengths: 'Sociable, refined, Kind, Fair',
 			weaknesses: 'Indecisive',
 			most_compatible: 'Aries, Gemini, Aquarius',
-			least_compatible: 'Cancer'
+			least_compatible: 'Pisces, Taurus, Capricorn, Cancer'
 		},
 		{
 			id: 8,
@@ -147,7 +147,7 @@ sun_signs = SunSign.create([
 			strengths: 'Perceptive, Resourceful, Fixed, Focused',
 			weaknesses: 'Possessive, Prowling, Probing',
 			most_compatible: 'Taurus, Cancer, Pisces',
-			least_compatible: 'Cancer'
+			least_compatible: 'Aries, Gemini'
 		},
 		{
 			id: 9,
@@ -163,7 +163,7 @@ sun_signs = SunSign.create([
 			strengths: 'Enthusiastic, Adventurous, Honest, Independent, Outspoken',
 			weaknesses: 'Irresponsible',
 			most_compatible: 'Gemini, Aries, Leo',
-			least_compatible: 'Cancer'
+			least_compatible: 'Taurus, Cancer'
 		},
 		{
 			id: 10,
@@ -179,7 +179,7 @@ sun_signs = SunSign.create([
 			strengths: 'Conservative, Resourceful, Disciplined, Wise',
 			weaknesses: 'Ambitious',
 			most_compatible: 'Cancer, Taurus, Virgo',
-			least_compatible: 'Cancer'
+			least_compatible: 'Gemini, Leo, Aries, Libra'
 		},
 		{
 			id: 11,
@@ -195,7 +195,7 @@ sun_signs = SunSign.create([
 			strengths: 'Assertive, Independent, Humanitarian, Inventive',
 			weaknesses: 'Eccentric, Opinionated, Detached',
 			most_compatible: 'Leo, Gemini, Libra',
-			least_compatible: 'Cancer'
+			least_compatible: 'Cancer, Virgo'
 		},
 		{
 			id: 12,
@@ -211,7 +211,7 @@ sun_signs = SunSign.create([
 			strengths: 'Dreamy, Artistic, Humane, Sympathetic, Compassionate',
 			weaknesses: 'Sensitive, Impressionable',
 			most_compatible: 'Virgo, Cancer, Scorpio',
-			least_compatible: 'Cancer'
+			least_compatible: 'Leo, Libra'
 		},
 
 	])
