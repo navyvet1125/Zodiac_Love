@@ -32,10 +32,10 @@ sun_signs = SunSign.create([
 			element:'Fire',
 			celestial_body:'Mars (Pluto)',
 			info: 'Aries is the fiery pioneer.  Aries is always energetic.',
-			strengths: 'Active, Initiating, Leader, Independent, Assertive',
-			weaknesses: 'Aggressive, Impatient, Combative, Naive',
+			strengths: 'Leader, Energetic, Helps others achieve dreams, Defends the vulnerable, Takes risks for others',
+			weaknesses: 'Has to be the boss, Brash, Intolerant, Jealous, Impulsive',
 			most_compatible: 'Libra, Leo, Sagittarius',
-			least_compatible: 'Cancer'
+			least_compatible: 'Scorpio, Virgo, Cancer, Capricorn'
 		},
 		{
 			id: 2,
