@@ -34,7 +34,7 @@ sun_signs = SunSign.create([
 			info: 'Aries is the fiery pioneer.  Aries is always energetic.',
 			strengths: 'Active, Initiating, Leader, Independent, Assertive',
 			weaknesses: 'Aggressive, Impatient, Combative, Naive',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Libra, Leo, Sagittarius',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -50,7 +50,7 @@ sun_signs = SunSign.create([
 			info: 'Taurus is sensual physical, and dependable',
 			strengths: 'Persevering, Down-to-earth, stable, dependable',
 			weaknesses: 'Stubborn, possessive,',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Scorpio, Virgo, Capricorn',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -66,7 +66,7 @@ sun_signs = SunSign.create([
 			info: 'Gemini is responsive and sociable',
 			strengths: 'Intellectual, Adaptable, Social',
 			weaknesses: 'Talkative, Superficial',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Sagittarius, Libra, Aquarius',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -82,7 +82,7 @@ sun_signs = SunSign.create([
 			info: 'Cancer is gentle',
 			strengths: 'Gentle, Conservative, Feeling, Nurturing',
 			weaknesses: 'Defensive Contemplative',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Capricorn, Scorpio, Pisces',
 			least_compatible: 'Aries'
 		},
 		{
@@ -98,7 +98,7 @@ sun_signs = SunSign.create([
 			info: 'Leo is magnanimous',
 			strengths: 'Generous, Hospitable, Caring, Warm, Active, Open',
 			weaknesses: 'Authoritative',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Aquarius, Aries, Sagittarius',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -114,7 +114,7 @@ sun_signs = SunSign.create([
 			info: 'The analytical Virgo',
 			strengths: 'Intelligent, Reserved, Helpful, Conscientous',
 			weaknesses: 'Critical',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Pisces, Taurus, Capricorn',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -130,7 +130,7 @@ sun_signs = SunSign.create([
 			info: 'Just Libra is very accomodating',
 			strengths: 'Sociable, refined, Kind, Fair',
 			weaknesses: 'Indecisive',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Aries, Gemini, Aquarius',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -143,10 +143,10 @@ sun_signs = SunSign.create([
 			quality: 'Fixed',
 			element:'Water',
 			celestial_body:'Pluto (Mars)',
-			info: 'Passionate Scoprio',
+			info: 'Passionate Scorpio',
 			strengths: 'Perceptive, Resourceful, Fixed, Focused',
 			weaknesses: 'Possessive, Prowling, Probing',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Taurus, Cancer, Pisces',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -162,7 +162,7 @@ sun_signs = SunSign.create([
 			info: 'Sagittarius is Optimistic',
 			strengths: 'Enthusiastic, Adventurous, Honest, Independent, Outspoken',
 			weaknesses: 'Irresponsible',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Gemini, Aries, Leo',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -178,7 +178,7 @@ sun_signs = SunSign.create([
 			info: 'Tenancious Capricorn',
 			strengths: 'Conservative, Resourceful, Disciplined, Wise',
 			weaknesses: 'Ambitious',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Cancer, Taurus, Virgo',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -194,7 +194,7 @@ sun_signs = SunSign.create([
 			info: 'Idependent Aquarius is cool and friendly',
 			strengths: 'Assertive, Independent, Humanitarian, Inventive',
 			weaknesses: 'Eccentric, Opinionated, Detached',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Leo, Gemini, Libra',
 			least_compatible: 'Cancer'
 		},
 		{
@@ -210,7 +210,7 @@ sun_signs = SunSign.create([
 			info: 'Intuitive Pisces',
 			strengths: 'Dreamy, Artistic, Humane, Sympathetic, Compassionate',
 			weaknesses: 'Sensitive, Impressionable',
-			most_compatible: 'Leo, Gemini, Sagittarius',
+			most_compatible: 'Virgo, Cancer, Scorpio',
 			least_compatible: 'Cancer'
 		},
 
