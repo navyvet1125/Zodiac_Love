@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  # get 'sun_signs/index'
+
+  # get 'sun_signs/show'
+
+  # root 'welcome#index'
+  # root 'users#index', as: :root
+  get 'signs' => 'sun_signs#index', as: :signs
+  get "signs/:name" =>'sun_signs#show', as: :sign
+  # get 'signup' => 'users#new'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

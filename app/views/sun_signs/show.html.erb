@@ -1,0 +1,26 @@
+
+
+<h1><%= @sun_sign.name %></h1>
+
+<h2>Characteristics</h2>
+<p>
+	<big><b>Dates:</b></big> <%= @sun_sign.month %>, <%= @sun_sign.day %> to <%= @next_sign.month %>, <%= @last %> <br/>
+	<big><b>Quality:</b></big> <%= @sun_sign.quality %> <br/>
+	<big><b>Element:</b></big> <%= @sun_sign.element %> <br/>
+	<big><b>Ruled By:</b></big> <%= @sun_sign.celestial_body %> <br/>
+	<big><b>Info:</b></big> <%= @sun_sign.info %> <br/>
+	<big><b>Strengths:</b></big> <%= @sun_sign.strengths %> <br/>
+	<big><b>Weaknesses:</b></big> <%= @sun_sign.weaknesses %> <br/>
+	<big><b>Gets along with:
+	<% @compatible.each  do |sign|%>
+		<%= link_to "#{sign}", sign_path(sign) %>
+	<% end %>
+	</b></big>
+
+	 <br/>
+
+</p>
+
+<br/>
+<br/>
+<%= link_to 'Back', signs_path %>

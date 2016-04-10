@@ -1,0 +1,2 @@
+module SunSignsHelper
+end

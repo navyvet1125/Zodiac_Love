@@ -1,0 +1,6 @@
+<h1>Sun Signs</h1>
+<ul>
+	<% @sun_signs.each do |sign| %>
+		<li> <%= link_to sign.name, sign_path(sign.name) %> </li>
+	<% end %>
+</ul>
