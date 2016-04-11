@@ -8,7 +8,11 @@
 	<big><b>Quality:</b></big> <%= @sun_sign.quality %> <br/>
 	<big><b>Element:</b></big> <%= @sun_sign.element %> <br/>
 	<big><b>Ruled By:</b></big> <%= @sun_sign.celestial_body %> <br/>
-	<big><b>Info:</b></big> <%= @sun_sign.info %> <br/>
+	<big><b>Info:</b></big><br/>
+	<% @info.each do |paragraph| %>
+		<p><%=  paragraph %></p>
+	<% end %>
+	<br/>
 	<big><b>Strengths:</b></big> <%= @sun_sign.strengths %> <br/>
 	<big><b>Weaknesses:</b></big> <%= @sun_sign.weaknesses %> <br/>
 	<big><b>Gets along with:
@@ -27,4 +31,6 @@
 
 <br/>
 <br/>
-<%= link_to 'Back', signs_path %>
+<%= link_to 'Back', sign_path(@previous.name) %> 
+<%= link_to 'Signs', signs_path %> 
+<%= link_to 'Next', sign_path(@next.name) %> 
