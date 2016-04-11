@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # get 'sun_signs/show'
 
-  # root 'welcome#index'
+  root 'welcome#index'
   # root 'users#index', as: :root
   get 'signs' => 'sun_signs#index', as: :signs
   get "signs/:name" =>'sun_signs#show', as: :sign
