@@ -31,7 +31,10 @@ sun_signs = SunSign.create([
 			quality: 'Cardinal',
 			element:'Fire',
 			celestial_body:'Mars (Pluto)',
-			info: 'Aries is the fiery pioneer.  Aries is always energetic.',
+			info: '    Aries, the fiery pioneer kicks off the zodiac with his energetic knightly ways.  He is a defender of the weak and will valiantly give his all for the cause of those he cares about.  Even when others have given up the cause, Aries will continue the fight.
+			Aries is ruled by Mars (and Pluto) which is what gives Aries both his aggressive and creative energies.  Aries, particularly  Arien men, are highly competitive, and will fight to win in any arena, be it a corporate setting, a school bake-off, or a boxing ring.  Aries has to win.
+			In love, the chase is probably one of the most important things for Aries.  It almost seems as if the joy of overcoming the obstacles is more important than the prize, as oftentimes Aries can become bored and move on as soon as the mystery has ended.
+			Keeping a little bit of mystery in the relationship is the best way to keep them entertained and coming back for more.  Arien lovers love nothing more than to put their partners on a pedestal, and will be very romantic.  Like many other signs, Aries demands absolute loyalty (whether one might think it ironic or not), and above all, hates to be criticized.  As the “baby”  of the zodiac, Aries can be a bit brash, sometimes intolerant, selfish, and impulsive at times, but his honesty, openness, courage, and nobility, make up for it in spades.',
 			strengths: 'Leader, Energetic, Helps others achieve dreams, Defends the vulnerable, Takes risks for others',
 			weaknesses: 'Has to be the boss, Brash, Intolerant, Jealous, Impulsive',
 			most_compatible: 'Libra, Leo, Sagittarius',
@@ -47,7 +50,10 @@ sun_signs = SunSign.create([
 			quality: 'Fixed',
 			element:'Earth',
 			celestial_body:'Venus',
-			info: 'Taurus is sensual physical, and dependable',
+			info: '	Calm, patient, methodical.  These are some of the words that best describe a typical Taurus.  Dependable and loyal, Taurus is the kind of person that will always be there when you need a hand.  Taurus values the talents of others, so you can expect to see a Taurus or two in the crowd whenever an event takes place.
+			Venus rules the loving bull; imbuing them with a knack for thorough and attentive affection.  Taurean women typically are very loyal to their friends.  Venus also gives Taurus a fondness for peace and security, as well as strong morals.
+			In love, Taurus is devoted and steadfast in his or her relationship with a partner.   Taurus may often settle quickly, digging their heels in when they find a suitable partner.  At the same time, however,  Taurean men are often wary of those trying to take advantage of them.  Taurus in general expects his or her partner to be as fully committed as they are, and are not the type to ever forgive a betrayal.
+			Taurus is methodical, oftentimes introverted and rarely changing his or her point of view.  As a result of this Taurus is usually in it for the long haul, and will even be willing to weather quite a number of storms.  However, when Taurus has had enough, there is nothing that will change his or her mind, once the decide that it is time to end the relationship.  Their stubborn natures would definitely show in a situation such as this.  Slow moving, stubborn, and quiet; Taurus brings harmony, dependability, and kindness wherever it goes.',
 			strengths: 'Persevering, Down-to-earth, stable, dependable',
 			weaknesses: 'Stubborn, possessive,',
 			most_compatible: 'Scorpio, Virgo, Capricorn',
@@ -63,7 +69,11 @@ sun_signs = SunSign.create([
 			quality: 'Mutable',
 			element:'Air',
 			celestial_body:'Mercury',
-			info: 'Gemini is responsive and sociable',
+			info: '	Versatile, quick-witted, inventive, highly cerebral are just some of the adjectives one could use to describe the fleet-footed Gemini.  As most people know, Gemini represents duality.  Its sign is that of a pair of twins after all.  This association can be traced back to Gemini\'s celestial ruler: Mercury.
+			Mercury, or Hermes in Greek mythology, was the quick footed messenger of the gods.  He was often depicted with wings on his sandals, noting how agile and adaptable he was.  Oftentimes paired with Venus/ Aphrodite; Mercury embodied the duality between the masculine and feminine.
+			Mercury was also seen wielding the Caduceus as well: a stick with two snakes intertwined around it.  It symbolizing libido and healing through instinctual knowledge; something that Geminis seem to have in spades.
+			In love Gemini will oftentimes appear to be cool and distant, but this is because they are  taking time to think things through before they act.  They are sensitive and open to hurt, thus they expect understanding, faithfulness, sympathy, and tenderness from their partners.
+			Gemini also needs a spontaneous partner to keep them entertained, or else they will get bored and will break things off.  It might seem sudden, but they will have been secretly thinking about it for awhile.  Sometimes impatient, irritable, and manipulative, Gemini brings adaptability, intellect, and charm to any relationship.',
 			strengths: 'Intellectual, Adaptable, Social',
 			weaknesses: 'Talkative, Superficial',
 			most_compatible: 'Sagittarius, Libra, Aquarius',
