@@ -11,6 +11,7 @@
 			<td><%= link_to message.sender.user_name, message.sender.user_name %></td>
 			<td><%= link_to message.title, message_path(message.sender.user_name,message.title) %></td>
 			<td><%= message.created_at %></td>
+			<td><%= "*" if @message.is_read%> </td>
 		</tr>
 	<% end %>
 </table>
