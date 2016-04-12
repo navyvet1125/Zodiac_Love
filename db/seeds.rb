@@ -215,3 +215,28 @@ sun_signs = SunSign.create([
 		},
 
 	])
+
+	# First_name
+	# Last_name
+	# User_name
+	# Email
+	# Born_on
+	# profile_title
+	# Profile_info
+	# Sun_sign_id
+	# Password_digest
+
+user = User.new(
+	{
+		first_name: 'Evan',
+		last_name: 'Washington',
+		user_name: 'Navyvet1125',
+		email: 'enavy04@gmail.com',
+		born_on: 'March 30, 1982',
+		profile_title: 'User admin guy',
+		profile_info: 'I\'m the man!',
+		sun_sign_id: SunSign.first
+	})
+user.sun_sign = SunSign.first
+user.save
+puts "#{user.first_name}'s Sun Sign is #{user.sun_sign.name}."

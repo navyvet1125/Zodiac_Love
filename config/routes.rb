@@ -1,14 +1,29 @@
 Rails.application.routes.draw do
+
+
+
+  get 'login' => 'sessions#new', as: :login
+
+  post 'login' => 'sessions#create'
+  delete 'logout' =>'sessions#destroy'
+
+  root 'welcome#index', as: :root
+
+  get 'users/search'
+
   get 'welcome/index'
 
   # get 'sun_signs/index'
 
   # get 'sun_signs/show'
-
-  root 'welcome#index'
+  post 'signup' =>'users#create'
+  get 'signup' =>'users#new'
+  
   # root 'users#index', as: :root
+  get 'users'=> 'users#index', as: :users
   get 'signs' => 'sun_signs#index', as: :signs
-  get "signs/:name" =>'sun_signs#show', as: :sign
+  get ':user_name'=>'users#show', as: :user
+  get 'signs/:name' =>'sun_signs#show', as: :sign
   # get 'signup' => 'users#new'
 
 

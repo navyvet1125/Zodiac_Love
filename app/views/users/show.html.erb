@@ -1,0 +1,16 @@
+<h1>Zodiac Love</h1>
+
+
+<h2><%= @user.user_name %></h2>
+
+<% if @user.profile_title %>
+	<h2><%= @user.profile_title %></h2>
+<% else %>
+	<h2>User seeks other user</h2>
+<% end %>
+<hr>
+<% if @user.profile_title %>
+	<p><%= @user.profile_title %></p>
+<% else %>
+	<p></p>
+<% end %>
