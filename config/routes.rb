@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   delete 'logout' =>'sessions#destroy'
   delete 'users/destroy'
+  delete ':user_name/message/:title' => 'message#destroy'
 
   # get 'signup' => 'users#new'
 

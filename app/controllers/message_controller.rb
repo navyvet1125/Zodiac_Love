@@ -25,4 +25,10 @@ class MessageController < ApplicationController
   def show
   	@message = Message.find_by(title: params[:title])
   end
+
+  def destroy
+  	@message = Message.find_by(title: params[:title])
+  	@message.destroy
+  	redirect_to messages_path
+  end
 end

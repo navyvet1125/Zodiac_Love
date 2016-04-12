@@ -5,3 +5,4 @@
 <p><%= @message.message_body %></p>
 <%= link_to "Reply", "#{new_message_path}?title=re:#{@message.title}" %>
 <%= link_to "Back", messages_path %>
+<%= link_to "Delete", message_path(@message.sender.user_name,@message.title), method: :delete, data:{ confirm: 'Are you sure?'} %>
