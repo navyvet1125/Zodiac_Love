@@ -15,26 +15,33 @@ class MessageController < ApplicationController
   	@message = Message.new()
   	@message.sender = User.find_by(user_name: params[:sender])
   	@message.receiver = User.find_by(user_name: params[:receiver])
-  	@message.title = params[:title]
   	# Make sure there is a title
-  	byebug
-  	
-  	@message.title = "No Title" if @message.title = ""
-  	@message.message_body =params[:message_body]
+    @message.title = "#{params[:title]} - #{Time.now.strftime("%y%m%d%H%M%S%2N")
+}"
+    @message.message_body = params[:message_body]
   	@message.is_read = false
   	@message.save
   	redirect_to user_path(@message.receiver.user_name)
   end
 
   def show
-  	@message = Message.find_by(title: params[:title])
-  	@message.is_read = true
-  	@message.save
+    # Find message by sender and name
+    user_id =User.find_by(user_name: params[:user_name]).id
+    title = params[:title]
+    @message = Message.where(sender_id: user_id).find_by(title: title)
+    # Set it to read
+    @message.is_read = true
+    @message.save
   end
 
   def destroy
-  	@message = Message.find_by(title: params[:title])
-  	@message.destroy
+    # Find message by sender and name
+    user_id =User.find_by(user_name: params[:user_name]).id
+    title = params[:title]
+  	@message = Message.where(sender_id: user_id).find_by(title: title)
+  	# Destroy the message
+    @message.destroy
+    # Redirect to messages
   	redirect_to messages_path
   end
 end

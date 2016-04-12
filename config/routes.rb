@@ -1,26 +1,21 @@
 Rails.application.routes.draw do
-
-
-
-
-
   root 'welcome#index', as: :root
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
   get 'users/search'
-  # get 'welcome/index'
 
-  # get 'sun_signs/index'
-
-  # get 'sun_signs/show'
-  post 'signup' =>'users#create'
-  post 'signup' => 'users#update'
+  post 'dashboard' =>'users#create'
   get 'signup' =>'users#new', as: :user_new
   get 'messages' =>'message#index', as: :messages
-  
+  post 'signup' => 'users#update'
+
+
+  patch 'signup' => 'users#update'
+  delete 'logout' =>'sessions#destroy'
+  delete 'users/destroy'
 
   get 'signs' => 'sun_signs#index', as: :signs
-  # root 'users#index', as: :root
+
   get 'dashboard'=> 'users#index', as: :users
   get 'dashboard/edit/:name' => 'users#edit', as: :user_edit
   get ':user_name'=>'users#show', as: :user
@@ -29,12 +24,7 @@ Rails.application.routes.draw do
   get ':user_name/message' => 'message#new', as: :new_message
   get 'signs/:name' =>'sun_signs#show', as: :sign
 
-  delete 'logout' =>'sessions#destroy'
-  delete 'users/destroy'
   delete ':user_name/message/:title' => 'message#destroy'
-
-  # get 'signup' => 'users#new'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
