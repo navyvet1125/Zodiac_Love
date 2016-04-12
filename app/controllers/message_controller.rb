@@ -12,18 +12,21 @@ class MessageController < ApplicationController
   end
 
   def create
-
   	@message = Message.new()
   	@message.sender = User.find_by(user_name: params[:sender])
   	@message.receiver = User.find_by(user_name: params[:receiver])
   	@message.title = params[:title]
+  	# Make sure there is a title
+  	@message.title ||= "No Title"
   	@message.message_body =params[:message_body]
+  	@message.is_read = false
   	@message.save
   	redirect_to user_path(@message.receiver.user_name)
   end
 
   def show
   	@message = Message.find_by(title: params[:title])
+  	@message.is_read = true
   end
 
   def destroy

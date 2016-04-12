@@ -2,6 +2,7 @@
 
 <h2>Message from <%= link_to @message.sender.user_name, user_path(@message.sender.user_name) %></h2>
 <h3>Title: <%= @message.title %></h3>
+<%= @message.is_read%>
 <p><%= @message.message_body %></p>
 <%= link_to "Reply", "#{new_message_path}?title=re:#{@message.title}" %>
 <%= link_to "Back", messages_path %>
