@@ -17,7 +17,9 @@ class MessageController < ApplicationController
   	@message.receiver = User.find_by(user_name: params[:receiver])
   	@message.title = params[:title]
   	# Make sure there is a title
-  	@message.title ||= "No Title"
+  	byebug
+  	
+  	@message.title = "No Title" if @message.title = ""
   	@message.message_body =params[:message_body]
   	@message.is_read = false
   	@message.save
@@ -27,6 +29,7 @@ class MessageController < ApplicationController
   def show
   	@message = Message.find_by(title: params[:title])
   	@message.is_read = true
+  	@message.save
   end
 
   def destroy
