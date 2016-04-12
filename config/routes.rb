@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # get 'sun_signs/show'
   post 'signup' =>'users#create'
+  post 'signup' => 'users#update'
   get 'signup' =>'users#new', as: :user_new
   get 'messages' =>'message#index', as: :messages
   
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get 'dashboard'=> 'users#index', as: :users
   get 'dashboard/edit/:name' => 'users#edit', as: :user_edit
   get ':user_name'=>'users#show', as: :user
+  get ':user_name/message/:title' => 'message#show', as: :message
+  post ':user_name/message' => 'message#create'
   get ':user_name/message' => 'message#new', as: :new_message
   get 'signs/:name' =>'sun_signs#show', as: :sign
 

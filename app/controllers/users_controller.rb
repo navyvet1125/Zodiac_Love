@@ -39,6 +39,10 @@ class UsersController < ApplicationController
   	end
   end
 
+  def update
+
+  end
+
   def new
   	redirect_to users_path if session[:user_id]
   end

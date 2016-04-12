@@ -1,8 +1,19 @@
 <h1>Your Messages</h1>
-
-<% @messages.each do |message|%>
-<p><b>From: </b> <%= message.sender.user_name %></p>
-<p><big><b>Title:</b></big><%= message.title %></p>
-<p><b>Sent on:</b><%= message.created_at %></p>
-<p><%= message.message_body %></p>
-<% end %>
+<table>
+	<thead>
+		<th><big><b>From:</b></big></th>
+		<th><big><b>Title:</b></big></th>
+		<th><big><b>Sent:</b></big></th>
+	</thead>
+	
+	<% @messages.each do |message|%>
+		<tr>
+			<td><%= link_to message.sender.user_name, message.sender.user_name %></td>
+			<td><%= link_to message.title, message_path(message.sender.user_name,message.title) %></td>
+			<td><%= message.created_at %></td>
+		</tr>
+	<% end %>
+</table>
+<p>
+	<%= link_to 'Dashboard', users_path%>
+</p>
