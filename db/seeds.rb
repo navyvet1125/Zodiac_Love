@@ -226,17 +226,51 @@ sun_signs = SunSign.create([
 	# Sun_sign_id
 	# Password_digest
 
-user = User.new(
-	{
-		first_name: 'Evan',
-		last_name: 'Washington',
-		user_name: 'Navyvet1125',
-		email: 'enavy04@gmail.com',
-		born_on: 'March 30, 1982',
-		profile_title: 'User admin guy',
-		profile_info: 'I\'m the man!',
-		sun_sign_id: SunSign.first
-	})
-user.sun_sign = SunSign.first
-user.save
-puts "#{user.first_name}'s Sun Sign is #{user.sun_sign.name}."
+
+
+# users = User.create([
+# 	{
+# 		id:1,
+# 		first_name: 'Evan',
+# 		last_name: 'Washington',
+# 		user_name: 'Navyvet1125',
+# 		email: 'enavy04@gmail.com',
+# 		born_on: 'March 30, 1982',
+# 		profile_title: 'User admin guy',
+# 		profile_info: 'I\'m the man!',
+# 		sun_sign_id: SunSign.first
+# 	},
+# 	{
+# 		id:2,
+# 		first_name: 'Sawa',
+# 		last_name: 'Eto',
+# 		user_name: 'ringobaby',
+# 		email: 'sawago5@gmail.com',
+# 		born_on: 'June 15 1979',
+# 		profile_title: 'User admin\'s gf',
+# 		profile_info: 'I\'m with the man!',
+# 		sun_sign_id: SunSign.third
+# 	}])
+
+ #    t.integer  "sender_id"
+ #    t.integer  "receiver_id"
+ #    t.string   "title"
+ #    t.text     "message_body"
+ #    t.datetime "created_at",   null: false
+ #    t.datetime "updated_at",   null: false
+
+	messages = Message.create([
+		{
+			sender: User.first,
+			receiver: User.second,
+			title: 'Hey babe',
+			message_body: 'I love you!'
+		},
+		{
+			sender: User.second,
+			receiver: User.first,
+			title: 're: Hey babe',
+			message_body: 'I love you too!'
+		},
+
+		])

@@ -1,0 +1,16 @@
+<h1>Zodiac Love</h1>
+
+<h2>New Message to <%= @receiver.user_name %></h2>
+
+<form action ="POST" method ="<%= @receiver.user_name %>/message/send">
+	<p><b>To: </b><%= @receiver.user_name %> </p>
+	<p><b>From: </b><%= @sender.user_name %> </p>
+	<input type ="hidden" name = "sender" value="<%= @sender.user_name %>"/>
+	<input type ="hidden" name = "receiver" value="<%= @receiver.user_name %>"/>
+	<label>Title</label><br/>
+	<input type = "text" name = "title"/><br/>
+	<label>Body</label><br/>
+	<textarea name ="message_body"></textarea><br/>
+	<button>Send</button>
+
+</form>

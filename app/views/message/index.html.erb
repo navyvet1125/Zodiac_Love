@@ -1,0 +1,8 @@
+<h1>Your Messages</h1>
+
+<% @messages.each do |message|%>
+<p><b>From: </b> <%= message.sender.user_name %></p>
+<p><big><b>Title:</b></big><%= message.title %></p>
+<p><b>Sent on:</b><%= message.created_at %></p>
+<p><%= message.message_body %></p>
+<% end %>

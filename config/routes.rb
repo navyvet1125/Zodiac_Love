@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+
+
   root 'welcome#index', as: :root
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   # get 'sun_signs/show'
   post 'signup' =>'users#create'
   get 'signup' =>'users#new', as: :user_new
+  get 'messages' =>'message#index', as: :messages
   
 
   get 'signs' => 'sun_signs#index', as: :signs
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
   get 'dashboard'=> 'users#index', as: :users
   get 'dashboard/edit/:name' => 'users#edit', as: :user_edit
   get ':user_name'=>'users#show', as: :user
+  get ':user_name/message' => 'message#new', as: :new_message
   get 'signs/:name' =>'sun_signs#show', as: :sign
 
   delete 'logout' =>'sessions#destroy'

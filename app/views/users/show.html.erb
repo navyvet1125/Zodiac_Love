@@ -15,4 +15,6 @@
 	<p></p>
 <% end %>
 
+<%= link_to "Message #{@user.user_name}!", new_message_path(@user.user_name)%>
+
 <%= link_to 'Home', users_path %>

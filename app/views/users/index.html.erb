@@ -8,7 +8,8 @@
 			<li> <b>Username:</b> <%= @user.user_name %> </li>	
 			<li> <b>Sign:</b> <%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %> </li>	
 			<li> <b>DOB:</b> <%= "#{@user.sun_sign.month} #{@user.born_on.day}" %> </li>
-			<li> <%= link_to "Update my profile", user_edit_path(@user) %> </li>	
+			<li> <%= link_to "Update my profile", user_edit_path(@user) %> </li>
+			<li> <%= link_to "Messages", messages_path %></li>	
 			<li>
 				<form method="POST" action="logout">
 				<input type ="hidden" name ="_method" value="delete">
@@ -17,6 +18,14 @@
 			</li>
 			<li><%= link_to "Delete my profile!", 'users/destroy', method: :delete, data:{ confirm: 'Are you sure?'} %></li>
 	</ul>
+	<ul>
+		<% @users.each do |user| %>
+		<li><%= link_to user.user_name, user.user_name %></li>
+		<% end %>
+
+	</ul>
+
+
 <% else %>
 <%= link_to 'Sign Up', 'signup' %>
 <% end %>
