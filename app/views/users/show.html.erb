@@ -2,15 +2,17 @@
 
 
 <h2><%= @user.user_name %></h2>
-
+<%= @user.sun_sign.name %>
 <% if @user.profile_title %>
 	<h2><%= @user.profile_title %></h2>
 <% else %>
 	<h2>User seeks other user</h2>
 <% end %>
 <hr>
-<% if @user.profile_title %>
-	<p><%= @user.profile_title %></p>
+<% if @user.profile_info %>
+	<p><%= @user.profile_info %></p>
 <% else %>
 	<p></p>
 <% end %>
+
+<%= link_to 'Home', users_path %>

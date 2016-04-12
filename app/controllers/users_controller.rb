@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-  	@users = User.all
+  	@users = User.where.not(id: session[:user_id])
   end
 
   def show
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-  	if (!User.find_by(params[:email]))
+  	if (!User.find_by(email: params[:email]))
 	  	@user =User.new({
 	  		user_name: params[:user_name],
 	  		email: params[:email],
@@ -23,9 +23,11 @@ class UsersController < ApplicationController
 	  		day = @user.born_on.day
 	  		@user_sign = SunSign.find_by(id: month)
 	  		if (@user_sign.day.to_i <= day)
-	  			@user.sun_sign = SunSign.find_by(id: month)
+	  			@user.sun_sign_id = SunSign.find_by(id: month).id
+	  			@user.save
 	  		else
-	  			@user.sun_sign = SunSign.find_by(id: month).previous
+	  			@user.sun_sign_id = SunSign.find_by(id: month).previous.id
+	  			@user.save
 	  		end
 	      	session[:user_id] = @user.id
 	  		redirect_to users_path
@@ -42,5 +44,19 @@ class UsersController < ApplicationController
   end
 
   def search
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+
+  def destroy
+  	@user = User.find_by(id: session[:user_id])
+  	@user.destroy
+   	session.delete(:user_id)
+	redirect_to root_path
   end
 end
