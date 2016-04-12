@@ -6,7 +6,7 @@
 			<li> <b>Name:</b> <%= "#{@user.first_name} #{@user.last_name}"%> </li>	
 			<li> <b>Email:</b> <%= @user.email %> </li>	
 			<li> <b>Username:</b> <%= @user.user_name %> </li>	
-			<li> <b>Sign:</b> <%= @user.sun_sign.name %> </li>	
+			<li> <b>Sign:</b> <%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %> </li>	
 			<li> <b>DOB:</b> <%= "#{@user.sun_sign.month} #{@user.born_on.day}" %> </li>
 			<li> <%= link_to "Update my profile", user_edit_path(@user) %> </li>	
 			<li>

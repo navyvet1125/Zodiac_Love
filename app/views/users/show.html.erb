@@ -2,7 +2,7 @@
 
 
 <h2><%= @user.user_name %></h2>
-<%= @user.sun_sign.name %>
+<%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %>
 <% if @user.profile_title %>
 	<h2><%= @user.profile_title %></h2>
 <% else %>
