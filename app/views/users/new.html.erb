@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" action="/dashboard">
 	<label>First name</label>
 	<input type ="text" name="first_name"  placeholder="First Name"/>
 	<br/>
@@ -15,7 +15,7 @@
 	<input type ="date" name="born_on"  value="1979-01-20" />
 	<br/>
 	<label>I am a: </label>
-	<select name="select">
+	<select name="gender">
 	  <option value="doesn't matter" selected>it doesn't matter</option>
 	  <option value="male">Male</option> 
 	  <option value="female">Female</option>
@@ -24,7 +24,7 @@
 	</select>
 	<br/>
 	<label>Seeking a: </label>
-	<select name="select">
+	<select name="desired_gender">
 	  <option value="doesn't matter" selected>it doesn't matter</option>
 	  <option value="male">Male</option> 
 	  <option value="female">Female</option>
@@ -32,9 +32,14 @@
 	  <option value="other">Other</option>
 	</select>
 	<br/>
-	<label>Zipcode</label>
-	<input type = "number" min="00501" max="99950"/>
+	<label>Zip Code</label>
+	<input type = "number" name ="zip_code" min="00501" max="99950"/>
 	<br/>
+	<label>Height</label>
+	<input type = "number" name="height_feet" min="1" max ="6"> ft. 
+	<input type = "number" name="height_inches" min="0" max ="11"> in.
+	<br/>
+
 
 	<label>Password</label>
 	<input type ="password" name="password"  placeholder="Password"/>
