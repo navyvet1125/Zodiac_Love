@@ -1,64 +1,75 @@
-<div id="account_info" class="container">
-	
-<%= render 'nav' %>
+<section id="account_info">
+<h2>Account Info</h2>
+<p><%= link_to "Delete my profile!", 'users/destroy', method: :delete, data:{ confirm: 'Are you sure?'} %></p>
 
-<form method="POST" action ="/signup">
-	<input type ="hidden" name ="_method" value ="update">
-	<section>
-		<h2>Account Info</h2>
-		<p><%= link_to "Delete my profile!", 'users/destroy', method: :delete, data:{ confirm: 'Are you sure?'} %></p>
-		<label>First name</label>
-		<input type ="text" name="first_name"  placeholder="First Name" value = "<%= @user.first_name %>" />
-		<br/>
-		<label>Last name</label>
-		<input type ="text" name="last_name"  placeholder="Last Name" value = "<%= @user.last_name %>"/>
-		<br/>
-		<label>Username</label>
-		<input type ="text" name="user_name"  placeholder="Username" value = "<%= @user.user_name %>"/>
-		<br/>
-		<label>Email Address</label>
-		<input type ="email" name="email"  placeholder="Email Address" value = "<%= @user.email %>" />
-		<br/>
-		<label>Birthday</label>
-		<input type ="date" name="born_on"  placeholder="Birthday" value = "<%= @user.born_on %>" />
-		<br/>
-
-			<button>Submit</button>
-			<br/>
-	</section>
-	<section>
-		<h2 id="profile_info">Profile info</h2>
-		<label>I am a: </label>
-		<select name="gender">
-		  <option value="doesn't matter" <%= "selected" if @user.gender=="doesn't matter" %> >it doesn't matter</option>
-		  <option value="male" <%= "selected" if @user.gender=="male" %> >Male</option> 
-		  <option value="female" <%= "selected" if @user.gender=="female" %>v>Female</option>
-		  <option value="transgender" <%= "selected" if @user.gender=="transgender" %> >Transgender</option>
-		  <option value="other" <%= "selected" if @user.gender=="other" %> >Other</option>
-		</select>
-		<br/>
-		<label>Seeking a: </label>
-		<select name="desired_gender">
-		  <option value="doesn't matter" <%= "selected" if @user.desired_gender=="doesn't matter" %> >it doesn't matter</option>
-		  <option value="male" <%= "selected" if @user.desired_gender=="male" %>>Male</option> 
-		  <option value="female" <%= "selected" if @user.desired_gender=="female" %>>Female</option>
-		  <option value="transgender"  <%= "selected" if @user.desired_gender=="transgender" %>>Transgender</option>
-		  <option value="other" <%= "selected" if @user.desired_gender=="other" %>>Other</option>
-		</select>
-		<br/>
-		<label>Zip Code</label>
-		<input type = "number" name = "zip_code" min="00501" max="99950" value ="<%= @user.zip_code %>"/>
-		<br/>
-		<label>Height</label>
-		<input type = "number" name="height_feet" min="1" max ="6" value ="<%= @user.height_feet %>"> ft. 
-		<input type = "number" name="height_inches" min="0" max ="11" value ="<%= @user.height_inches %>"> in.
-		<br/>
-
-		<input type = "text" name="profile_title"  value ="<%= @user.profile_title %>" >
-		<br/>
-		<textarea name="profile_info" cols="75" rows="25"><%= @user.profile_info %></textarea>
-		<br/>
-		<button>Submit</button>
-	</section>
-</form>
-</div>
+<%= form_for @user, url: {action: "update"} do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, :placeholder => "ex: John" %>
+  <br/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, :placeholder => "ex: Smith" %>
+  <br/>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name, :placeholder => "ex: JohnSmith79" %>
+  <br/>
+  <%= f.label :email %>
+  <%= f.text_field :email, :placeholder => "ex: John@Smith.com" %>
+  <br/>
+ <%= f.submit %>
+<% end %>
+</section>
+<secton>
+  <h2 id="profile_info">Profile info</h2>
+  	 <%= image_tag @user.image.url(:large) if @user.image.url(:large) %>
+  <%= form_for @user, url: {action: "update"} do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.label :born_on %>
+  <%= f.date_field :born_on %>
+  <br/>
+  <%= f.label "I'm a: " %>
+  <%= f.select(:gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label "Seeking a: " %>
+  <%= f.select(:desired_gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label :zip_code %>
+  <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"90305"} %>
+  <br/>
+  <%= f.label "Height" %>
+  <%= f.number_field :height_feet, options = {:min =>1, :max=>8, :placeholder =>"5"} %>
+  <%=  "ft." %>
+  <%= f.number_field :height_inches, options = {:min =>0, :max=>11, :placeholder =>"9"} %>
+  <%=  "in." %>
+  <br/>
+  <%= f.label "Title" %>
+  <%= f.text_field :profile_title %>
+  
+  <br/>
+  <%= f.label "info"%>
+  <br/>
+  <%= f.text_area :profile_info, options = {:cols =>50, :rows=>15} %>
+  <br/>
+  <%= f.submit %>
+</section>
+<% end %>

@@ -244,8 +244,7 @@ users = User.create!([
 		desired_gender: 'female',
 		height_feet: 5,
 		height_inches: 9,
-		zip_code: 90304,
-		image_src: "EvanInKyoto.jpg"
+		zip_code: 90304
 	},
 	{
 		first_name: 'Sawa',
@@ -262,8 +261,7 @@ users = User.create!([
 		desired_gender: 'male',
 		height_feet: 5,
 		height_inches: 3,
-		zip_code: 90304,
-		image_src: "default.jpg"
+		zip_code: 90304
 	}])
 
  #    t.integer  "sender_id"

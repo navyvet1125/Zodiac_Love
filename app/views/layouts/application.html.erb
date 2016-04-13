@@ -5,10 +5,72 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<div class = "container">
+		<% if current_user%>
+			<% @user = current_user %>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <%= link_to "Zodiac Love", users_path,  class: "navbar-brand" %>
+			    </div>
 
-<%= yield %>
+			    <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+				  <li><a href="#">Regular link</a></li>
+				  <li class="disabled"><a href="#">Disabled link</a></li>
+				  <li><a href="#">Another link</a></li>
+				</ul>
 
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse">
+			      <form class="navbar-form navbar-right" method="POST" action="/logout">
+					<input type ="hidden" name ="_method" value="delete">
+			        <button type="submit" class="btn btn-default">Logout</button>
+			      </form>
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><%= link_to "Signs", signs_path %></li>
+			        <li><%= link_to "Messages", messages_path %></li>
+			        <li><%# link_to "Settings", "#{user_edit_path(@user.user_name)}#account_info" %></li>
+			        
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		<% else %>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Zodiac Love</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="z-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li><%= link_to "Signs", signs_path %></li>
+			        </ul>
+			      <form class="navbar-form navbar-right" role="login">
+			        <div class="form-group">
+			          <input type="text" name ="user_name" class="form-control" placeholder="Username">
+			          <input type="password"  name ="password" class="form-control" placeholder="Password">
+			        </div>
+			        <button type="submit" class="btn btn-default">Login</button>
+			      </form>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		<% end %>
+		<%= yield %>
+
+	</div>
 </body>
 </html>

@@ -1,51 +1,60 @@
-<form method="POST" action="/dashboard">
-	<label>First name</label>
-	<input type ="text" name="first_name"  placeholder="First Name"/>
-	<br/>
-	<label>Last name</label>
-	<input type ="text" name="last_name"  placeholder="Last Name"/>
-	<br/>
-	<label>Username</label>
-	<input type ="text" name="user_name"  placeholder="Username"/>
-	<br/>
-	<label>Email Address</label>
-	<input type ="email" name="email"  placeholder="Email Address"/>
-	<br/>
-	<label>Birthday</label>
-	<input type ="date" name="born_on"  value="1979-01-20" />
-	<br/>
-	<label>I am a: </label>
-	<select name="gender">
-	  <option value="doesn't matter" selected>it doesn't matter</option>
-	  <option value="male">Male</option> 
-	  <option value="female">Female</option>
-	  <option value="transgender">Transgender</option>
-	  <option value="other">Other</option>
-	</select>
-	<br/>
-	<label>Seeking a: </label>
-	<select name="desired_gender">
-	  <option value="doesn't matter" selected>it doesn't matter</option>
-	  <option value="male">Male</option> 
-	  <option value="female">Female</option>
-	  <option value="transgender">Transgender</option>
-	  <option value="other">Other</option>
-	</select>
-	<br/>
-	<label>Zip Code</label>
-	<input type = "number" name ="zip_code" min="00501" max="99950"/>
-	<br/>
-	<label>Height</label>
-	<input type = "number" name="height_feet" min="1" max ="6"> ft. 
-	<input type = "number" name="height_inches" min="0" max ="11"> in.
-	<br/>
+<%= form_for @user, url: {action: "create"} do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, :placeholder => "ex: John" %>
+  <br/>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, :placeholder => "ex: Smith" %>
+  <br/>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name, :placeholder => "ex: JohnSmith79" %>
+  <br/>
+  <%= f.label :email %>
+  <%= f.text_field :email, :placeholder => "ex: John@Smith.com" %>
+  <br/>
+  <%= f.label :born_on %>
+  <%= f.date_field :born_on, :value => "1979-01-20" %>
+  <br/>
+  <%= f.label "I'm a: " %>
+  <%= f.select(:gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label "Seeking a: " %>
+  <%= f.select(:desired_gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label :zip_code %>
+  <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"90305"} %>
+  <br/>
+  <%= f.label "Height" %>
+  <%= f.number_field :height_feet, options = {:min =>1, :max=>8, :placeholder =>"5"} %>
+  <%=  "ft." %>
+  <%= f.number_field :height_inches, options = {:min =>0, :max=>11, :placeholder =>"9"} %>
+  <%=  "in." %>
+  <br/>
+  <%= f.label :password %>
+  <%= f.password_field :password, :placeholder =>"Password" %>
+  <br/>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :placeholder =>"Confirm Password" %>
+  <br/>
+  <%= f.submit %>
+<% end %>
 
-
-	<label>Password</label>
-	<input type ="password" name="password"  placeholder="Password"/>
-	<br/>
-	<label>Confirm Password</label>
-	<input type ="password" name="password_confirmation"  placeholder="Confirm Password"/>
-	<br/>
-	<button>Submit</button>
-</form>

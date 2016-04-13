@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412230130) do
+ActiveRecord::Schema.define(version: 20160413180051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,15 +53,18 @@ ActiveRecord::Schema.define(version: 20160412230130) do
     t.string   "profile_title"
     t.text     "profile_info"
     t.integer  "sun_sign_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "password_digest"
     t.string   "gender"
     t.string   "desired_gender"
     t.integer  "height_feet"
     t.integer  "height_inches"
     t.integer  "zip_code"
-    t.string   "image_src"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

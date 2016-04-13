@@ -8,22 +8,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    params = request.request_parameters
-  	if (!User.find_by(email: params[:email]))
-      @user =User.create({
-        user_name: params[:user_name],
-        email: params[:email],
-        first_name: params[:first_name],
-        last_name: params[:last_name],
-	  		born_on: params[:born_on],
-        gender: params[:gender],
-        desired_gender: params[:desired_gender],
-        height_feet: params[:height_feet],
-        height_inches: params[:height_inches],
-        zip_code: params[:zip_code],
-	  		password: params[:password],
-	  		password_confirmation: params[:password_confirmation]
-	  	})
+     	if (!User.find_by(email: params[:email]))
+      @user =User.new(user_params)
+      byebug
 	  	# verify that the new user was saved
       if @user.save
         # If saved, Determine user's sun sign
@@ -61,25 +48,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    params = request.request_parameters
     @users = User.where.not(id: session[:user_id]).find_by(email: params[:email])
     if (!@users)
       @user = User.find_by(id: session[:user_id])
-      @user = User.update(
-        session[:user_id],
-        :user_name => params[:user_name],
-        :email => params[:email],
-        :first_name => params[:first_name],
-        :last_name => params[:last_name],
-        :born_on => params[:born_on],
-        :gender => params[:gender],
-        :desired_gender => params[:desired_gender],
-        :zip_code => params[:zip_code],
-        :height_feet => params[:height_feet],
-        :height_inches => params[:height_inches],
-        :profile_title =>params[:profile_title],
-        :profile_info =>params[:profile_info]
-      )
+      @user.update_attributes(user_params)
       if @user.save
         month = (@user.born_on.month+10)%12
         day = @user.born_on.day
@@ -108,3 +80,9 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 end
+
+private
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :user_name, :email, :born_on, :gender, :desired_gender, :height_feet, :height_inches, :zip_code, :password, :password_confirmation, :profile_title, :profile_info, :image)
+  end
+  
