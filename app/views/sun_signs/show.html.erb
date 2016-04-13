@@ -1,17 +1,28 @@
+<div class ="container">
+<%= render 'users/nav' %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 ><%= @sun_sign.name %></h1>
+  </div>
+  <div class="panel-body">
 
 
-<h1><%= @sun_sign.name %></h1>
-
-<h2>Characteristics</h2>
-<p>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		<h2>Characteristics</h2>
 	<big><b>Dates:</b></big> <%= @sun_sign.month %>, <%= @sun_sign.day %> to <%= @next_sign.month %>, <%= @last %> <br/>
 	<big><b>Quality:</b></big> <%= @sun_sign.quality %> <br/>
 	<big><b>Element:</b></big> <%= @sun_sign.element %> <br/>
 	<big><b>Ruled By:</b></big> <%= @sun_sign.celestial_body %> <br/>
 	<big><b>Info:</b></big><br/>
-	<% @info.each do |paragraph| %>
-		<p><%=  paragraph %></p>
-	<% end %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+		<% @info.each do |paragraph| %>
+			<p><%=  paragraph %></p>
+		<% end %>
+		</div>
+	</div>
 	<br/>
 	<big><b>Strengths:</b></big> <%= @sun_sign.strengths %> <br/>
 	<big><b>Weaknesses:</b></big> <%= @sun_sign.weaknesses %> <br/>
@@ -27,10 +38,15 @@
 	<% end %>
 	</b></big>
 	 <br/>
-</p>
+</div>
 
 <br/>
 <br/>
+  </div>
+</div>
+<div class="panel-footer">
 <%= link_to 'Back', sign_path(@previous.name) %> 
-<%= link_to 'Signs', signs_path %> 
+<%= link_to 'Signs', signs_path %>  
 <%= link_to 'Next', sign_path(@next.name) %> 
+</div>
+</div>

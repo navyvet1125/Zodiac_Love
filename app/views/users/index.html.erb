@@ -1,5 +1,6 @@
-<%= render 'nav' %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<div id="main-container" class="container">
+		<%= render 'nav' %>
 		<% if current_user%>
 			<h1>Welcome <%= current_user.user_name %></h1>
 			<ul>

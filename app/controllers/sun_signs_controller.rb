@@ -1,6 +1,6 @@
 class SunSignsController < ApplicationController
   def index
-  	@sun_signs = SunSign.all
+  	@sun_signs = SunSign.order('id ASC')
   end
 
   def show

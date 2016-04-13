@@ -1,6 +1,21 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class = "container">
+	
+<%= render 'users/nav' %>
+
+<div class="panel panel-default">
 <h1>Sun Signs</h1>
-<ul>
-	<% @sun_signs.each do |sign| %>
-		<li> <%= link_to sign.name, sign_path(sign.name) %> </li>
+  
+  <div class="panel-heading">List of signs</div>
+  <div class="panel-body">
+
+  <!-- List group -->
+  <ul class="list-group">
+  	<% @sun_signs.each do |sign| %>
+		<li class="list-group-item"> <%= link_to sign.name, sign_path(sign.name) %> </li>
 	<% end %>
-</ul>
+  </ul>
+   </div>
+</div>
+
+</div>
