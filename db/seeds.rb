@@ -20,6 +20,8 @@
 # t.string   "most_compatible"
 # t.string   "least_compatible"
 SunSign.destroy_all
+User.destroy_all
+Message.destroy_all
 sun_signs = SunSign.create([
 		{
 			id: 1,
@@ -226,31 +228,43 @@ sun_signs = SunSign.create([
 	# Sun_sign_id
 	# Password_digest
 
-
-
-# users = User.create([
-# 	{
-# 		id:1,
-# 		first_name: 'Evan',
-# 		last_name: 'Washington',
-# 		user_name: 'Navyvet1125',
-# 		email: 'enavy04@gmail.com',
-# 		born_on: 'March 30, 1982',
-# 		profile_title: 'User admin guy',
-# 		profile_info: 'I\'m the man!',
-# 		sun_sign_id: SunSign.first
-# 	},
-# 	{
-# 		id:2,
-# 		first_name: 'Sawa',
-# 		last_name: 'Eto',
-# 		user_name: 'ringobaby',
-# 		email: 'sawago5@gmail.com',
-# 		born_on: 'June 15 1979',
-# 		profile_title: 'User admin\'s gf',
-# 		profile_info: 'I\'m with the man!',
-# 		sun_sign_id: SunSign.third
-# 	}])
+users = User.create!([
+	{
+		first_name: 'Evan',
+		last_name: 'Washington',
+		user_name: 'Navyvet1125',
+		email: 'enavy04@gmail.com',
+		born_on: 'March 30, 1982',
+		profile_title: 'User admin guy',
+		profile_info: 'I\'m the man!',
+		sun_sign: SunSign.first,
+		password: "12345",
+		password_confirmation: "12345",
+		gender: 'male',
+		desired_gender: 'female',
+		height_feet: 5,
+		height_inches: 9,
+		zip_code: 90304,
+		image_src: "EvanInKyoto.jpg"
+	},
+	{
+		first_name: 'Sawa',
+		last_name: 'Eto',
+		user_name: 'ringobaby',
+		email: 'sawago5@gmail.com',
+		born_on: 'June 15 1979',
+		profile_title: 'User admin\'s gf',
+		profile_info: 'I\'m with the man!',
+		password: "12345",
+		password_confirmation: "12345",
+		sun_sign: SunSign.third,
+		gender: 'female',
+		desired_gender: 'male',
+		height_feet: 5,
+		height_inches: 3,
+		zip_code: 90304,
+		image_src: "default.jpg"
+	}])
 
  #    t.integer  "sender_id"
  #    t.integer  "receiver_id"
@@ -264,13 +278,15 @@ sun_signs = SunSign.create([
 			sender: User.first,
 			receiver: User.second,
 			title: 'Hey babe',
-			message_body: 'I love you!'
+			message_body: 'I love you!',
+			is_read: true
 		},
 		{
 			sender: User.second,
 			receiver: User.first,
 			title: 're: Hey babe',
-			message_body: 'I love you too!'
+			message_body: 'I love you too!',
+			is_read: false
 		},
-
 		])
+
