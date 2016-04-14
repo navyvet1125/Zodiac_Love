@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
-  	redirect_to users_path if session[:user_id]
+    @user = User.new
+    redirect_to users_path if session[:user_id]
   end
 
   def index
@@ -8,13 +9,23 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.find_by({user_name: params[:user_name]})
-  	if user && user.authenticate(params[:password])
-  		session[:user_id] = user.id
-  		redirect_to users_path
-  	else
-  		render :new
-  	end
+    if params[:login]
+      user = User.find_by(login_params)
+      if user && user.authenticate(params[:login][:password])
+        session[:user_id] = user.id
+        redirect_to users_path
+      else
+        render :new
+      end
+    else 
+      user = User.find_by(login_params_welcome)
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect_to users_path
+      else
+    		render :new
+    	end
+    end
   end
 
   def destroy
@@ -22,3 +33,11 @@ class SessionsController < ApplicationController
   	redirect_to root_path
   end
 end
+
+private
+  def login_params
+    params.require(:login).permit(:user_name)
+  end
+  def login_params_welcome
+    params.permit(:user_name)
+  end

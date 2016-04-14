@@ -6,13 +6,19 @@
 
 
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-5 col-md-offset-1">
 		<h2>Characteristics</h2>
 	<big><b>Dates:</b></big> <%= @sun_sign.month %>, <%= @sun_sign.day %> to <%= @next_sign.month %>, <%= @last %> <br/>
 	<big><b>Quality:</b></big> <%= @sun_sign.quality %> <br/>
 	<big><b>Element:</b></big> <%= @sun_sign.element %> <br/>
 	<big><b>Ruled By:</b></big> <%= @sun_sign.celestial_body %> <br/>
 	<big><b>Info:</b></big><br/>
+	</div>
+	<div class="col-md-5">
+		<h1 style="font-size: 10em;"><%= @sun_sign.symbol %></h1>
+	</div>
+	</div>
+	<div class="col-md-10 col-md-offset-1">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 		<% @info.each do |paragraph| %>

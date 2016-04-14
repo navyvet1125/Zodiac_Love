@@ -25,6 +25,7 @@ Message.destroy_all
 sun_signs = SunSign.create([
 		{
 			id: 1,
+			symbol: '♈',
 			name: 'Aries',
 			month: 'March',
 			day: 21,
@@ -41,6 +42,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 2,
+			symbol: '♉',
 			name: 'Taurus',
 			month: 'April',
 			day: 20,
@@ -57,6 +59,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 3,
+			symbol: '♊',
 			name: 'Gemini',
 			month: 'May',
 			day: 21,
@@ -73,6 +76,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 4,
+			symbol: '♋',
 			name: 'Cancer',
 			month: 'June',
 			day: 21,
@@ -89,6 +93,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 5,
+			symbol: '♌',
 			name: 'Leo',
 			month: 'July',
 			day: 23,
@@ -105,6 +110,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 6,
+			symbol: '♍',
 			name: 'Virgo',
 			month: 'August',
 			day: 21,
@@ -121,6 +127,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 7,
+			symbol: '♎',
 			name: 'Libra',
 			month: 'September',
 			day: 23,
@@ -137,6 +144,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 8,
+			symbol: '♏',
 			name: 'Scorpio',
 			month: 'October',
 			day: 23,
@@ -153,6 +161,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 9,
+			symbol: '♐',
 			name: 'Sagittarius',
 			month: 'November',
 			day: 22,
@@ -169,6 +178,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 10,
+			symbol: '♑',
 			name: 'Capricorn',
 			month: 'December',
 			day: 22,
@@ -185,6 +195,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 11,
+			symbol: '♒',
 			name: 'Aquarius',
 			month: 'January',
 			day: 20,
@@ -201,6 +212,7 @@ sun_signs = SunSign.create([
 		},
 		{
 			id: 12,
+			symbol: '♓',
 			name: 'Pisces',
 			month: 'February',
 			day: 19,
