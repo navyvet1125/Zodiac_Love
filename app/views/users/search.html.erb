@@ -1,2 +1,45 @@
-<h1>Users#search</h1>
-<p>Find me in app/views/users/search.html.erb</p>
+<%= form_for @user_search, url: {action: "search"} do |f| %>
+<div class="form-group">
+  <h2 id="profile_info">Profile info</h2>
+  <%= f.label "I'm looking for a: " %>
+  <%= f.select(:gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label "Seeking a: " %>
+  <%= f.select(:desired_gender) do %>
+	  <% [
+	  		['It doesn\'t matter','Doesn\'t Matter'],
+	  		['Male','Male'],
+	  		['Female','Female'], 
+	  		['Transgender', 'Transgender'],
+	  		['Other','Other']
+	  	].each do |c| -%>
+	    <%= content_tag(:option, c.first, value: c.last) %>
+	  <% end %>
+  <% end %>
+  <br/>
+  <%= f.label "Near: " %>
+  <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"Zip"} %>
+  <br/>
+  <%= f.submit "Search"%>
+</div>
+</section>
+<% end %>
+
+  
+  <% if @users %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.user_name %></li>
+    <% end %>
+  </ul>
+  <% end %>

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'welcome#index', as: :root
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
-  get 'users/search'
 
   post 'dashboard' =>'users#create'
   get 'signup' =>'users#new', as: :user_new
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'signs' => 'sun_signs#index', as: :signs
 
+  get 'dashboard/search' => 'users#search'
+  post 'dashboard/search' => 'users#search'
   get 'dashboard'=> 'users#index', as: :users
   get 'dashboard/edit/:name' => 'users#edit', as: :user_edit
   get ':user_name'=>'users#show', as: :user

@@ -72,6 +72,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @user= User.find_by(id: session[:user_id])
+    @user_search = User.new
+    
+    if (params[:user])
+      search_params = params.require(:user).permit(:gender,:desired_gender, :zip_code)
+      @users = User.where(search_params)
+      byebug
+    end
+
+  end
 
   def destroy
   	@user = User.find_by(id: session[:user_id])

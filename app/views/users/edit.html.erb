@@ -19,8 +19,13 @@
 <% end %>
 </section>
 <secton>
+<div class="form-group">
   <h2 id="profile_info">Profile info</h2>
-  	 <%= image_tag @user.image.url(:large) if @user.image.url(:large) %>
+  	 <% if @user.image.url(:large).to_s !="/images/large/missing.png" %>
+    <%= image_tag @user.image.url(:large)  %>
+  <% else %>
+    <p style="font-size: 7em;"><%= @user.sun_sign.symbol %></p>
+  <% end %>
   <%= form_for @user, url: {action: "update"} do |f| %>
   <%= f.label :image %>
   <%= f.file_field :image %>
@@ -68,8 +73,9 @@
   <br/>
   <%= f.label "info"%>
   <br/>
-  <%= f.text_area :profile_info, options = {:cols =>50, :rows=>15} %>
+  <%= f.text_area :profile_info , :class => "form-control input-md" %>
   <br/>
   <%= f.submit %>
+</div>
 </section>
 <% end %>

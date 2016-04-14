@@ -2,11 +2,16 @@
 <%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %>
 <% if @user.profile_title %>
 	<h2><%= @user.profile_title %></h2>
-	 <%= image_tag @user.image.url(:large) %>
-	 <%= link_to "image_tag", @user.image.url(:large) %>
-	 <br/>
+	<hr>
+	<% if @user.image.url(:large).to_s !="/images/large/missing.png" %>
+		<%= image_tag @user.image.url(:large)  %>
+	<% else %>
+		<p style="font-size: 7em; text-align: center"><%= @user.sun_sign.symbol %></p>
+	<% end %>
+	
+	<br/>
 <% else %>
-	<h2>User seeks other user</h2>
+	<h2><%= @user.gender %> seeks <%= @user.desired_gender %></h2>
 <% end %>
 <hr>
 <% if @user.profile_info %>
