@@ -1,6 +1,21 @@
-<h2>Message from <%= link_to @message.sender.user_name, user_path(@message.sender.user_name) %></h2>
-<h3>Title: <%= @message.title %></h3>
-<p><%= @message.message_body %></p>
-<%= link_to "Reply", "#{new_message_path}?title=re:#{@message.title}" %>
-<%= link_to "Back", messages_path %>
-<%= link_to "Delete", message_path(@message.sender.user_name,@message.title), method: :delete, data:{ confirm: 'Are you sure?'} %>
+<h1>Messages</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Message from <%= link_to @message.sender.user_name, user_path(@message.sender.user_name) %></h2>
+  </div>
+  <div class="panel-body">
+  		<div class="panel-heading panel-info">
+			<h3><%= @message.title %></h3>
+		</div>
+			<div class="panel-body">
+				<%= @message.message_body %>
+		</div>
+	</div>
+	<div class="panel-footer">
+	<ul class = "nav nav-pills">
+		<li role="presentation"><%= link_to "Reply", "#{new_message_path}?title=re:#{@message.title}" %></li>
+		<li role="presentation"><%= link_to "Back", messages_path %></li>
+		<li role="presentation"><%= link_to "Delete", message_path(@message.sender.user_name,@message.title), method: :delete, data:{ confirm: 'Are you sure?'} %></li>
+	</ul>
+	</div>
+</div>

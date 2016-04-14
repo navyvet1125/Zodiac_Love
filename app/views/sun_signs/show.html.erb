@@ -48,7 +48,15 @@
   </div>
 </div>
 <div class="panel-footer">
-<%= link_to 'Back', sign_path(@previous.name) %> 
-<%= link_to 'Signs', signs_path %>  
-<%= link_to 'Next', sign_path(@next.name) %> 
+<ul class = "nav nav-pills">
+		<li role="presentation"><%= link_to '<- Previous', sign_path(@previous.name) %> </li>
+		<li role="presentation"><%= link_to 'Back', :back %> </li>
+		<li role="presentation"><%= link_to 'Signs', signs_path %></li>
+		<li role="presentation"><%= link_to 'Next ->', sign_path(@next.name) %></li>
+	</ul>
+
+
+
+
+
 </div>

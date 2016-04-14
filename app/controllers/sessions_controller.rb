@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
     redirect_to users_path if session[:user_id]
+    @user = User.new
   end
 
   def index
-
+    redirect_to login_path
   end
 
   def create

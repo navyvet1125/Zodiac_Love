@@ -1,27 +1,28 @@
 class MessageController < ApplicationController
   def index
-
   	@messages = Message.where(receiver_id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
   end
 
   def new
-  	# @message = Message.new
   	@title = params[:title] if params[:title]
   	@sender = User.find_by(id: session[:user_id])
   	@receiver = User.find_by(user_name: params[:user_name])
+    @message =Message.new
   end
 
   def create
-  	@message = Message.new()
-  	@message.sender = User.find_by(user_name: params[:sender])
-  	@message.receiver = User.find_by(user_name: params[:receiver])
-  	# Make sure there is a title
-    @message.title = "#{params[:title]} - #{Time.now.strftime("%y%m%d%H%M%S%2N")
+  	@message = Message.create(message_params)
+    # Make sure the title exists and is dynamic
+    @message.title = "#{message_params[:title]} - #{Time.now.strftime("%y%m%d%H%M%S%2N")
 }"
-    @message.message_body = params[:message_body]
-  	@message.is_read = false
-  	@message.save
-  	redirect_to user_path(@message.receiver.user_name)
+  	# Make new message unread
+    @message.is_read = false
+  	if @message.save
+      redirect_to messages_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -45,3 +46,7 @@ class MessageController < ApplicationController
   	redirect_to messages_path
   end
 end
+private
+  def message_params
+    params.require(:message).permit(:sender_id, :receiver_id, :title, :message_body)
+  end

@@ -1,14 +1,25 @@
 <div class="panel panel-default">
-<h1>Sun Signs</h1>
-  
-  <div class="panel-heading">List of signs</div>
-  <div class="panel-body">
-
-  <!-- List group -->
-  <ul class="list-group">
-  	<% @sun_signs.each do |sign| %>
-		<li class="list-group-item"> <%= link_to sign.name, sign_path(sign.name) %> </li>
-	<% end %>
-  </ul>
-   </div>
+	<h1>Signs</h1>
+	<div class="panel-heading">
+		<h2>Sun Signs</h2>
+	</div>
+	<div class="panel-body col-md-6 col-md-offset-3">
+		<!-- List group -->
+			<table class="table table-bordered table-striped">
+				<thead>
+					<th class="danger"><big><b>Name:</b></big></th>
+					<th class="danger"><big><b>Quality:</b></big></th>
+					<th class="danger"><big><b>Element:</b></big></th>
+				</thead>
+				<tbody>
+					<% @sun_signs.each do |sign| %>
+						<tr>
+							<td><%= link_to sign.name, sign_path(sign.name) %></td>
+							<td><%= sign.quality %></td>
+							<td><%= sign.element %></td>
+						</tr>
+					<% end %>
+				</tbody>
+		</table>
+		</div>
 </div>

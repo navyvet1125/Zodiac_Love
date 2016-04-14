@@ -1,19 +1,35 @@
-<h1>Your Messages</h1>
-<table>
-	<thead>
-		<th><big><b>From:</b></big></th>
-		<th><big><b>Title:</b></big></th>
-		<th><big><b>Sent:</b></big></th>
-	</thead>
-	
-	<% @messages.each do |message|%>
-		<tr>
-			<td><%= "*" if !message.is_read%><%= link_to message.sender.user_name, message.sender.user_name %></td>
-			<td><%= link_to message.title, message_path(message.sender.user_name,message.title) %></td>
-			<td><%= message.created_at %></td>
-		</tr>
-	<% end %>
-</table>
-<p>
+<h1>Messages</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Messages for <%= @user.user_name %></h2>
+  </div>
+  <div class="panel-body">
+	<table class="table  table-bordered">
+		<thead>
+			<th class="info"><big><b>From:</b></big></th>
+			<th class="info"><big><b>Title:</b></big></th>
+			<th class="info"><big><b>Sent:</b></big></th>
+			<th class="info"><big><b>Action:</b></big></th>
+		</thead>
+		<tbody>
+			<% @messages.each do |message|%>
+				<tr>
+					<td><%= link_to message.sender.user_name, message.sender.user_name %></td>
+					<td>
+						<% if !message.is_read %>
+							<b><%= link_to message.title, message_path(message.sender.user_name,message.title) %></b>
+						<% else %>
+							<%= link_to message.title, message_path(message.sender.user_name,message.title) %>
+						<% end %>
+					</td>
+					<td><%= message.created_at %></td>
+					<td> <%= link_to "Delete", message_path(message.sender.user_name,message.title), method: :delete, :class=>"btn btn-danger", data:{ confirm: 'Are you sure?'} %>	<%= link_to "Reply", "#{new_message_path(message.sender.user_name)}?title=re:#{message.title}",:class=>"btn btn-success" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+  </div>
+<div class="panel-footer">
+
 	<%= link_to 'Dashboard', users_path%>
-</p>
+</div>
