@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Gemfile
 gem 'aws-sdk', '< 2.0'
-
+gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
