@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
   def index
+    redirect_to login_path unless session[:user_id]
   	@users = User.where.not(id: session[:user_id])
   end
 
   def show
   	@user = User.find_by(user_name: params[:user_name])
+    @compatible = @user.sun_sign.most_compatible.split(', ')
+    @least_compatible = @user.sun_sign.least_compatible.split(', ')
   end
 
   def create
+      redirect_to login_path unless session[:user_id]
      	if (!User.find_by(email: params[:email]))
       @user =User.new(user_params)
-      byebug
 	  	# verify that the new user was saved
       if @user.save
         # If saved, Determine user's sun sign
@@ -44,10 +47,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to login_path unless session[:user_id]
     @user = User.find_by(id: session[:user_id])
   end
 
   def update
+    redirect_to login_path unless session[:user_id]
     @users = User.where.not(id: session[:user_id]).find_by(email: params[:email])
     if (!@users)
       @user = User.find_by(id: session[:user_id])
@@ -73,18 +78,22 @@ class UsersController < ApplicationController
   end
 
   def search
+    redirect_to login_path unless session[:user_id]
     @user= User.find_by(id: session[:user_id])
     @user_search = User.new
     
     if (params[:user])
       search_params = params.require(:user).permit(:gender,:desired_gender, :zip_code)
-      @users = User.where(search_params)
-      byebug
+      @users = User.where(search_params).take(20)
+    else
+      @users = User.all.take(20)
     end
+
 
   end
 
   def destroy
+    redirect_to login_path unless session[:user_id]
   	@user = User.find_by(id: session[:user_id])
   	@user.destroy
    	session.delete(:user_id)

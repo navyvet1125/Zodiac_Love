@@ -5,75 +5,74 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class = "container">
-		<% if current_user && session[:user_id]%>
-			<% @user = current_user %>
-			<nav class="navbar navbar-default">
-			  <div class="container-fluid">
-			    <!-- Brand and toggle get grouped for better mobile display -->
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-navbar-collapse-1" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      <%= link_to "Zodiac Love", users_path,  class: "navbar-brand" %>
-			    </div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="z-navbar-collapse-1">
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><%= link_to 'Dashboard', users_path%></li>
-			        <li><%= link_to "Signs", signs_path %></li>
-			        <li><%= link_to "Messages", messages_path %></li>
-			        <li><%= link_to "Settings", "#{user_edit_path(@user.user_name)}#account_info" %></li>
-			        <li>
-				      <form method="POST" action="/logout" class ="navbar-form navbar-right">
-						<input type ="hidden" name ="_method" value="delete">
-				        <button type="submit" class="btn btn-default form-control">Logout</button>
-				      </form>
-			        </li>
-			      </ul>
-			    </div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
-		<% else %>
-			<nav class="navbar navbar-default">
-			  <div class="container-fluid">
-			    <!-- Brand and toggle get grouped for better mobile display -->
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-navbar-collapse-2" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      <%= link_to "Zodiac Love", users_path,  class: "navbar-brand" %>
-			    </div>
-
-			    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="z-navbar-collapse-2">
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><%= link_to "Signs", signs_path %></li>
-			        <li><%= link_to "Sign Up", user_new_path %></li>
-			      	<li><form class="navbar-form navbar-right" role="login"  method ="POST" action="/login">
-			        <div class="form-group">
-			          <input type="text" name ="user_name" class="form-control" placeholder="Username">
-			          <input type="password"  name ="password" class="form-control" placeholder="Password">
-			        </div>
-			        <button type="submit" class="btn btn-default">Login</button>
+	<% if current_user && session[:user_id]%>
+		<% @user = current_user %>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <%= link_to "Zodiac Love", users_path,  class: "navbar-brand" %>
+		    </div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="z-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><%= link_to 'Dashboard', users_path%></li>
+		        <li><%= link_to "Signs", signs_path %></li>
+		        <li><%= link_to "Messages", messages_path %></li>
+		        <li><%= link_to "Settings", "#{user_edit_path(@user.user_name)}#account_info" %></li>
+		        <li>
+			      <form method="POST" action="/logout" class ="navbar-form navbar-right">
+					<input type ="hidden" name ="_method" value="delete">
+			        <button type="submit" class="btn btn-default form-control">Logout</button>
 			      </form>
-			      </li>
-			        </ul>
-			    </div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
-		<% end %>
-		<%= yield %>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	<% else %>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-navbar-collapse-2" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <%= link_to "Zodiac Love", users_path,  class: "navbar-brand" %>
+		    </div>
 
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="z-navbar-collapse-2">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><%= link_to "Signs", signs_path %></li>
+		        <li><%= link_to "Sign Up", user_new_path %></li>
+		      	<li><form class="navbar-form navbar-right" role="login"  method ="POST" action="/login">
+		        <div class="form-group">
+		          <input type="text" name ="user_name" class="form-control" placeholder="Username">
+		          <input type="password"  name ="password" class="form-control" placeholder="Password">
+		        </div>
+		        <button type="submit" class="btn btn-default">Login</button>
+		      </form>
+		      </li>
+		        </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	<% end %>
+	<div class= "container">
+		<%= yield %>
 	</div>
 </body>
 </html>

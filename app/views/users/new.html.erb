@@ -1,60 +1,101 @@
-<%= form_for @user, url: {action: "create"} do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, :placeholder => "ex: John" %>
-  <br/>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, :placeholder => "ex: Smith" %>
-  <br/>
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name, :placeholder => "ex: JohnSmith79" %>
-  <br/>
-  <%= f.label :email %>
-  <%= f.text_field :email, :placeholder => "ex: John@Smith.com" %>
-  <br/>
-  <%= f.label :born_on %>
-  <%= f.date_field :born_on, :value => "1979-01-20" %>
-  <br/>
-  <%= f.label "I'm a: " %>
-  <%= f.select(:gender) do %>
-	  <% [
-	  		['It doesn\'t matter','Doesn\'t Matter'],
-	  		['Male','Male'],
-	  		['Female','Female'], 
-	  		['Transgender', 'Transgender'],
-	  		['Other','Other']
-	  	].each do |c| -%>
-	    <%= content_tag(:option, c.first, value: c.last) %>
-	  <% end %>
-  <% end %>
-  <br/>
-  <%= f.label "Seeking a: " %>
-  <%= f.select(:desired_gender) do %>
-	  <% [
-	  		['It doesn\'t matter','Doesn\'t Matter'],
-	  		['Male','Male'],
-	  		['Female','Female'], 
-	  		['Transgender', 'Transgender'],
-	  		['Other','Other']
-	  	].each do |c| -%>
-	    <%= content_tag(:option, c.first, value: c.last) %>
-	  <% end %>
-  <% end %>
-  <br/>
-  <%= f.label :zip_code %>
-  <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"90305"} %>
-  <br/>
-  <%= f.label "Height" %>
-  <%= f.number_field :height_feet, options = {:min =>1, :max=>8, :placeholder =>"5"} %>
-  <%=  "ft." %>
-  <%= f.number_field :height_inches, options = {:min =>0, :max=>11, :placeholder =>"9"} %>
-  <%=  "in." %>
-  <br/>
-  <%= f.label :password %>
-  <%= f.password_field :password, :placeholder =>"Password" %>
-  <br/>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :placeholder =>"Confirm Password" %>
-  <br/>
-  <%= f.submit %>
-<% end %>
-
+<h1>Sign up</h1>
+<div class="panel panel-default row">
+  <div class="panel-heading">
+    <h2>Welcome</h2>
+  </div>
+  <div class="panel-body" id="account_info">
+    <%= form_for @user, url: {action: "create"} do |f| %>
+      <div class="form-group row">
+        <%= f.label :first_name, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.text_field :first_name, :placeholder => "ex: John" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :last_name, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.text_field :last_name, :placeholder => "ex: Smith" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :user_name, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.text_field :user_name, :placeholder => "ex: JohnSmith79" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :email, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.text_field :email, :placeholder => "ex: John@Smith.com" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :born_on, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.date_field :born_on, :value => "1979-01-20" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label "I'm a: ", nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.select(:gender) do %>
+        	  <% [
+        	  		['It doesn\'t matter','Doesn\'t Matter'],
+        	  		['Male','Male'],
+        	  		['Female','Female'], 
+        	  		['Transgender', 'Transgender'],
+        	  		['Other','Other']
+        	  	].each do |c| -%>
+        	    <%= content_tag(:option, c.first, value: c.last) %>
+        	  <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label "Seeking a: ", nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.select(:desired_gender) do %>
+        	  <% [
+        	  		['It doesn\'t matter','Doesn\'t Matter'],
+        	  		['Male','Male'],
+        	  		['Female','Female'], 
+        	  		['Transgender', 'Transgender'],
+        	  		['Other','Other']
+        	  	].each do |c| -%>
+        	    <%= content_tag(:option, c.first, value: c.last) %>
+        	  <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :zip_code, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"90305"} %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label "Height", nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.number_field :height_feet, options = {:min =>1, :max=>8, :placeholder =>"5"} %>
+          <%=  "ft." %>
+          <%= f.number_field :height_inches, options = {:min =>0, :max=>11, :placeholder =>"9"} %>
+          <%=  "in." %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :password, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+          <%= f.password_field :password, :placeholder =>"Password" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :password_confirmation, nil, :class => 'col-sm-4 control-label' %>
+        <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, :placeholder =>"Confirm Password" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.submit :class => "btn btn-success col-sm-2 col-sm-offset-4" %>
+      </div>
+    <% end %>
+  </div>

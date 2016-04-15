@@ -1,25 +1,64 @@
-<h2><%= @user.user_name %></h2>
-<%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %>
-<% if @user.profile_title %>
-	<h2><%= @user.profile_title %></h2>
-	<hr>
-	<% if @user.image.url(:large).to_s !="/images/large/missing.png" %>
-		<%= image_tag @user.image.url(:large)  %>
+<h1><%= link_to @user.user_name, new_message_path(@user.user_name) %></h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+	<% if @user.profile_title %>
+		<h2><%= @user.profile_title %></h2>
 	<% else %>
-		<p style="font-size: 7em; text-align: center"><%= @user.sun_sign.symbol %></p>
+		<h2><%= @user.gender %> seeks <%= @user.desired_gender %></h2>
 	<% end %>
-	
-	<br/>
-<% else %>
-	<h2><%= @user.gender %> seeks <%= @user.desired_gender %></h2>
-<% end %>
-<hr>
-<% if @user.profile_info %>
-	<p><%= @user.profile_info %></p>
-<% else %>
-	<p></p>
-<% end %>
+  </div>
+  <div class="panel-body">
+	<div class="row">
+		<div class="col-sm-2 col-sm-offset-5">
+			<% if @user.image.url(:large).to_s !="/images/large/missing.png" %>
+				<%= image_tag @user.image.url(:large)  %>
+			<% else %>
+				<div class="sun-symbol"><%= @user.sun_sign.symbol %></div>
+			<% end %>	
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 profile-info">
+			<% if @user.profile_info %>
+				<p><%= @user.profile_info %></p>
+			<% else %>
+				<p>This user hasn't written a profile yet....</p>
+			<% end %>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<h3 class="col-xs-2 col-xs-offset-5"><%= link_to @user.sun_sign.name, sign_path(@user.sun_sign.name) %></h3>
+	</div>
+	<div class="row">
+	<h3 class="col-md-offset-1">Most compatible with</h3>
+		<ul class = "nav nav-pills col-md-6  nav-justified">
+			<% @compatible.each do |sign| %>
+				<li role="presentation "><%= link_to sign, sign_path(sign) %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="row">
+	<h3 class="col-md-offset-1">Least compatible with</h3>
+		<ul class = "nav nav-pills col-md-6  nav-justified">
+			<% @least_compatible.each do |sign| %>
+				<li role="presentation "><%= link_to sign, sign_path(sign) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div class="panel-footer">
+	<ul class = "nav nav-pills">
+		<li role="presentation"><%= link_to "Message #{@user.user_name}!", new_message_path(@user.user_name) %> </li>
+		<li role="presentation"><%= link_to 'Home', users_path %></li>
+		<li role="presentation"><%= link_to 'Back', :back %> </li>
+		<li role="presentation"><%= link_to 'Signs', signs_path %></li>
+	</ul>
+</div>
 
-<%= link_to "Message #{@user.user_name}!", new_message_path(@user.user_name)%>
 
-<%= link_to 'Home', users_path %>
+
+
+
+

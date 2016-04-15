@@ -1,45 +1,67 @@
-<%= form_for @user_search, url: {action: "search"} do |f| %>
-<div class="form-group">
-  <h2 id="profile_info">Profile info</h2>
-  <%= f.label "I'm looking for a: " %>
-  <%= f.select(:gender) do %>
-	  <% [
-	  		['It doesn\'t matter','Doesn\'t Matter'],
-	  		['Male','Male'],
-	  		['Female','Female'], 
-	  		['Transgender', 'Transgender'],
-	  		['Other','Other']
-	  	].each do |c| -%>
-	    <%= content_tag(:option, c.first, value: c.last) %>
-	  <% end %>
-  <% end %>
-  <br/>
-  <%= f.label "Seeking a: " %>
-  <%= f.select(:desired_gender) do %>
-	  <% [
-	  		['It doesn\'t matter','Doesn\'t Matter'],
-	  		['Male','Male'],
-	  		['Female','Female'], 
-	  		['Transgender', 'Transgender'],
-	  		['Other','Other']
-	  	].each do |c| -%>
-	    <%= content_tag(:option, c.first, value: c.last) %>
-	  <% end %>
-  <% end %>
-  <br/>
-  <%= f.label "Near: " %>
-  <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"Zip"} %>
-  <br/>
-  <%= f.submit "Search"%>
-</div>
-</section>
-<% end %>
-
-  
-  <% if @users %>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= user.user_name %></li>
+<h1>Search Users</h1>
+<div class="panel panel-default row">
+  <div class="panel-heading">
+    <h2 id="profile_info">Profile info</h2>
+  </div>
+  <div class= "panel-body">
+    <%= form_for @user_search, url: {action: "search"} do |f| %>
+      <div class="form-group row">
+        <%= f.label "I'm looking for a: ", nil, :class => 'col-sm-offset-1 col-sm-3 control-label' %>
+        <div class="col-sm-8">
+          <%= f.select(:gender) do %>
+        	  <% [
+        	  		['It doesn\'t matter','Doesn\'t Matter'],
+        	  		['Male','Male'],
+        	  		['Female','Female'], 
+        	  		['Transgender', 'Transgender'],
+        	  		['Other','Other']
+        	  	].each do |c| -%>
+        	    <%= content_tag(:option, c.first, value: c.last) %>
+        	  <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label "Seeking a: ", nil, :class => 'col-sm-offset-1 col-sm-3 control-label' %>
+        <div class="col-sm-8">
+          <%= f.select(:desired_gender) do %>
+        	  <% [
+        	  		['It doesn\'t matter','Doesn\'t Matter'],
+        	  		['Male','Male'],
+        	  		['Female','Female'], 
+        	  		['Transgender', 'Transgender'],
+        	  		['Other','Other']
+        	  	].each do |c| -%>
+        	    <%= content_tag(:option, c.first, value: c.last) %>
+        	  <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label "Located in: ", nil, :class => 'col-sm-offset-1 col-sm-3 control-label' %>
+        <div class="col-sm-8">
+          <%= f.number_field :zip_code, options = {:min =>501, :max=>99950, :placeholder =>"Zip"} %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.submit "Search", :class => "btn btn-success col-sm-2 col-sm-offset-4 col-xs-offset-1" %>
+      </div>
     <% end %>
-  </ul>
-  <% end %>
+    <div class ="row">
+      <% if @users %>
+      <ul class ="list-group">
+        <% @users.each do |user| %>
+          <a href="<%= user_path(user.user_name) %>"><li class="list-group-item col-md-2 col-md-offset-1">
+             <%= user.user_name %>
+            <% if user.image.url(:med).to_s !="/images/med/missing.png" %>
+              <%= image_tag user.image.url(:med)  %>
+            <% else %>
+              <p class="sun-symbol-sm"><%= user.sun_sign.symbol %></p>
+            <% end %>
+          </li></a>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

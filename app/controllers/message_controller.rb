@@ -1,10 +1,12 @@
 class MessageController < ApplicationController
   def index
+    redirect_to login_path unless session[:user_id]
   	@messages = Message.where(receiver_id: session[:user_id])
     @user = User.find_by(id: session[:user_id])
   end
 
   def new
+    redirect_to login_path unless session[:user_id]
   	@title = params[:title] if params[:title]
   	@sender = User.find_by(id: session[:user_id])
   	@receiver = User.find_by(user_name: params[:user_name])
@@ -12,6 +14,7 @@ class MessageController < ApplicationController
   end
 
   def create
+    redirect_to login_path unless session[:user_id]
   	@message = Message.create(message_params)
     # Make sure the title exists and is dynamic
     @message.title = "#{message_params[:title]} - #{Time.now.strftime("%y%m%d%H%M%S%2N")
@@ -26,6 +29,7 @@ class MessageController < ApplicationController
   end
 
   def show
+    redirect_to login_path unless session[:user_id]
     # Find message by sender and name
     user_id =User.find_by(user_name: params[:user_name]).id
     title = params[:title]
@@ -36,6 +40,7 @@ class MessageController < ApplicationController
   end
 
   def destroy
+    redirect_to login_path unless session[:user_id]
     # Find message by sender and name
     user_id =User.find_by(user_name: params[:user_name]).id
     title = params[:title]

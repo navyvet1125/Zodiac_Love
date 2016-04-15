@@ -5,9 +5,22 @@
 
 body{
 	font-size: 16px;
-	
+	background:url('roses.jpg');
+	background-size: cover;
 }
 
+p{
+	text-indent:1em;
+}
+
+.container{
+	position:relative;
+	top: -20px;
+}
+
+.row {
+	margin: 3em;
+}
 
 header{
 	height: 20vh;
@@ -21,6 +34,9 @@ header h1{
 	margin:0;
 }
 
+textarea{
+	resize: none;
+}
 
 nav ul {
 	float: right;
@@ -40,4 +56,10 @@ nav button {
 	border:0;
 	background: none;
 	font-size: 100%;
+}
+
+.landing-page{
+	height: 98vh;
+	width: 99vw;
+	background: none;
 }

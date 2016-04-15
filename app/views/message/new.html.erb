@@ -4,9 +4,7 @@
     <h2>New Message to <%= @receiver.user_name %></h2>
   </div>
   <div class="panel-body">
-
-
-<%= form_for @message, :html => {:class => "form-horizontal center"} , url: {action: "create"} do |f| %>
+	<%= form_for @message, :html => {:class => "form-horizontal center"} , url: {action: "create"} do |f| %>
 	<%= f.hidden_field :sender_id, :value => @sender.id %>
 	<%= f.hidden_field :receiver_id, :value => @receiver.id %>
 	<div class="form-group">
@@ -31,5 +29,5 @@
 <% end %>
 </div>
 <div class="panel-footer">
-<%= link_to 'Back', :back %>
+	<%= link_to 'Back', :back %>
 </div>
