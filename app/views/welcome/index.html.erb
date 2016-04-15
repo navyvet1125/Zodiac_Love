@@ -1,4 +1,16 @@
-	<h1>Zodiac Love</h1>
-	<h2>Finding your match with the stars</h2>
-	<%= link_to "Let's go", login_path %>
-	<span class="sun-symbol-md">♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓</span>
+	<div class="row">
+		<h1 class= "col-md-4 col-md-offset-4 sun-symbol-sm">Zodiac Love</h1>
+	</div>
+	<div class ="row">
+		<h2 class= "col-md-5 col-md-offset-4">Finding your match in the stars</h2>
+	</div>
+	<div class="row">
+		<%= link_to "Let's go", login_path, :class =>"btn btn-info btn-lg  col-md-2 col-md-offset-5" %>
+	</div>
+	<div class="row">
+		<% @signs.each do |sign| %>
+			<div>
+				<%= link_to sign.symbol, sign_path(sign.name), :class =>"sun-symbol-md col-xs-3" %>
+			</div>
+		<% end %>
+	</div>
