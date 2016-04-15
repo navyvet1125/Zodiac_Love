@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'signs' => 'sun_signs#index', as: :signs
 
   get 'dashboard/search' => 'users#search'
-  post 'dashboard/search' => 'users#search'
+  post 'dashboard/search' => 'users#search', as: :search
   get 'dashboard'=> 'users#index', as: :users
   get 'dashboard/edit/:name' => 'users#edit', as: :user_edit
   get ':user_name'=>'users#show', as: :user
