@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def create
-      redirect_to login_path unless session[:user_id]
      	if (!User.find_by(email: params[:email]))
       @user =User.new(user_params)
 	  	# verify that the new user was saved
@@ -52,7 +51,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    redirect_to login_path unless session[:user_id]
     @users = User.where.not(id: session[:user_id]).find_by(email: params[:email])
     if (!@users)
       @user = User.find_by(id: session[:user_id])

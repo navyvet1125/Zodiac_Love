@@ -14,7 +14,7 @@ class MessageController < ApplicationController
   end
 
   def create
-    redirect_to login_path unless session[:user_id]
+    
   	@message = Message.create(message_params)
     # Make sure the title exists and is dynamic
     @message.title = "#{message_params[:title]} - #{Time.now.strftime("%y%m%d%H%M%S%2N")
