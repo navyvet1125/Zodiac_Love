@@ -1,11 +1,10 @@
 # Zodiac_Love
-A dating site where finding someone is based on one's zodiac sign.
+A dating site where finding someone is based on one's zodiac sign.  <a href="http://zodiac-love-app.herokuapp.com" target="_blank">Let's Go!!!</a>
 
 <a href="splash.png" target="_blank"><img src="splash.png"/></a>
 
 <a href="https://trello.com/b/1Z1dSTcs/zodiac-love" target="_blank">My Trello</a>
 
-<a href="http://zodiac-love-app.herokuapp.com" target="_blank"></a>
 
 ### Technologies
 + Built using Ruby on Rails
